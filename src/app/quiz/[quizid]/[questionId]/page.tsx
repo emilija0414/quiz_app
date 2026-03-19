@@ -40,7 +40,6 @@ export default function QuestionPage({ params }: QuestionPageProps) {
   const prevQuestion = getPrevQuestion(quiz.questions, questionIndex, answers);
   const nextQuestion = getNextQuestion(quiz.questions, question.id, answers);
 
-  // compute visibility synchronously
   const isVisible = !question.visibleIf
     ? true
     : question.visibleIf.every(
@@ -49,12 +48,10 @@ export default function QuestionPage({ params }: QuestionPageProps) {
 
   const shouldSkip = question.visibleIf && answersLoaded && !isVisible;
 
-  // perform redirect in effect so we can still render header while redirecting
   useEffect(() => {
     if (!shouldSkip) return;
     const next = getNextQuestion(quiz.questions, question.id, answers);
     if (next) {
-      // use replace to avoid extra history entry while skipping
       router.replace(`/quiz/${quizKey}/${next.id}`);
     } else {
       router.replace("/results");

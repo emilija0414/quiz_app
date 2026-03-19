@@ -29,7 +29,6 @@ export default function QuestionRenderer({
       )}
 
       <div className="w-full max-w-md flex flex-col items-center gap-4">
-        {/* Single Choice */}
         {question.type === "single_choice" &&
           question.options?.map((opt) => (
             <OptionCard
@@ -41,7 +40,6 @@ export default function QuestionRenderer({
             />
           ))}
 
-        {/* Multi Choice */}
         {question.type === "multi_choice" &&
           question.options?.map((opt) => {
             const selectedArray = Array.isArray(value) ? value : [];
