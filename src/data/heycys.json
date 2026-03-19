@@ -1,0 +1,106 @@
+{
+  "quizId": "heycys",
+  "title": "HeyCys Quiz",
+  "intro": {
+    "title": "Walk yourself out of PCOS",
+    "image": "<image-url>",
+    "buttons": [
+      { "id": "start_quiz", "label": "Start the Quiz", "action": "start" }
+    ]
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single_choice",
+      "text": "What is your primary goal?",
+      "options": [
+        { "value": "lose_weight", "label": "Lose weight" },
+        { "value": "balance_hormones", "label": "Balance hormones and mood" },
+        { "value": "gain_muscle", "label": "Gain muscle" },
+        { "value": "boost_energy", "label": "Boost energy" }
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "multi_choice",
+      "text": "What changes do you want to see?",
+      "visibleIf": [{ "questionId": "q1", "equals": "balance_hormones" }],
+      "options": [
+        {
+          "value": "clear_skin",
+          "label": "Clearer skin",
+          "image": "<image-url>"
+        },
+        {
+          "value": "fuller_hair",
+          "label": "Fuller hair",
+          "image": "<image-url>"
+        },
+        {
+          "value": "less_hair",
+          "label": "Less unwanted hair",
+          "image": "<image-url>"
+        },
+        {
+          "value": "flatter_belly",
+          "label": "Flatter belly",
+          "image": "<image-url>"
+        },
+        {
+          "value": "regular_periods",
+          "label": "Regular periods",
+          "image": "<image-url>"
+        }
+      ],
+      "buttons": [
+        { "id": "continue_q2", "label": "Continue", "action": "next" }
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "info",
+      "text": "Did you know?",
+      "subtitle": "Walking can ease PCOS symptoms.",
+      "image": "<image-url>",
+      "description": "Keep in mind that it only takes 15 minutes of walking each morning to give long-lasting results. Let’s continue with creating your personalized meal plan portfolio!",
+      "buttons": [
+        { "id": "next_q3", "label": "OK, let's do it!", "action": "next" }
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "single_choice",
+      "text": "Do you have any allergies?",
+      "options": [
+        { "value": "yes", "label": "Yes" },
+        { "value": "no", "label": "No" }
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "multi_choice",
+      "text": "What foods are you allergic to?",
+      "visibleIf": [{ "questionId": "q4", "equals": "yes" }],
+      "options": [
+        { "value": "lactose", "label": "Lactose", "image": "<image-url>" },
+        { "value": "eggs", "label": "Eggs", "image": "<image-url>" },
+        { "value": "nuts", "label": "Nuts", "image": "<image-url>" },
+        { "value": "soy", "label": "Soy", "image": "<image-url>" },
+        { "value": "gluten", "label": "Gluten", "image": "<image-url>" },
+        { "value": "fish", "label": "Fish", "image": "<image-url>" },
+        { "value": "shellfish", "label": "Shellfish", "image": "<image-url>" },
+        { "value": "none", "label": "None of the above" }
+      ],
+      "buttons": [
+        { "id": "continue_q5", "label": "Continue", "action": "next" }
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "number",
+      "text": "How young are you?",
+      "placeholder": "Age",
+      "buttons": [{ "id": "next_q6", "label": "Next", "action": "next" }]
+    }
+  ]
+}

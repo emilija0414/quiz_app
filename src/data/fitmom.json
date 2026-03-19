@@ -1,0 +1,100 @@
+{
+  "quizId": "fitmom",
+  "title": "FitMom Quiz",
+  "intro": {
+    "title": "Get back in shape.",
+    "image": "<image-url>",
+    "buttons": [{ "label": "Start the Quiz", "action": "start" }]
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single_choice",
+      "text": "What is your primary goal?",
+      "options": [
+        { "value": "lose_weight", "label": "Lose weight" },
+        {
+          "value": "improve_body_areas",
+          "label": "Improve specific body areas"
+        },
+        { "value": "gain_muscle", "label": "Gain muscle" },
+        { "value": "healthy_habits", "label": "Develop healthy habits" }
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "multi_choice",
+      "text": "Select body areas you would like to improve:",
+      "visibleIf": [{ "questionId": "q1", "equals": "improve_body_areas" }],
+      "options": [
+        { "value": "breast", "label": "Breast form", "image": "<image-url>" },
+        { "value": "arms", "label": "Arms", "image": "<image-url>" },
+        { "value": "belly", "label": "Belly", "image": "<image-url>" },
+        { "value": "buttocks", "label": "Buttocks", "image": "<image-url>" },
+        {
+          "value": "legs_thighs",
+          "label": "Legs and thighs",
+          "image": "<image-url>"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "multi_choice",
+      "text": "Select types of workouts you like:",
+      "options": [
+        {
+          "value": "flexibility",
+          "label": "Flexibility",
+          "image": "<image-url>"
+        },
+        { "value": "aerobic", "label": "Aerobic", "image": "<image-url>" },
+        { "value": "strength", "label": "Strength", "image": "<image-url>" },
+        { "value": "others", "label": "Others", "image": "<image-url>" },
+        {
+          "value": "no_workouts",
+          "label": "I don't like workouts",
+          "image": "<image-url>"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "info",
+      "text": "Did you know?",
+      "image": "<image-url>",
+      "description": "Low impact exercises are completely safe during breastfeeding and do not affect the milk supply or taste. Keep in mind that it only takes 15 minutes of focused daily physical activity to give long-lasting results.",
+      "buttons": [{ "label": "OK, let's do it!", "action": "next" }]
+    },
+    {
+      "id": "q5",
+      "type": "single_choice",
+      "text": "Are you currently breastfeeding?",
+      "options": [
+        { "value": "yes", "label": "Yes" },
+        { "value": "no", "label": "No" }
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "multi_choice",
+      "text": "What foods is your breastfed baby sensitive to?",
+      "options": [
+        { "value": "lactose", "label": "Lactose", "image": "<image-url>" },
+        { "value": "eggs", "label": "Eggs", "image": "<image-url>" },
+        { "value": "nuts", "label": "Nuts", "image": "<image-url>" },
+        { "value": "soy", "label": "Soy", "image": "<image-url>" },
+        { "value": "gluten", "label": "Gluten", "image": "<image-url>" },
+        { "value": "fish", "label": "Fish", "image": "<image-url>" },
+        { "value": "shellfish", "label": "Shellfish", "image": "<image-url>" },
+        { "value": "none", "label": "None of the above" }
+      ]
+    },
+    {
+      "id": "q7",
+      "type": "number",
+      "text": "How young are you?",
+      "placeholder": "Age"
+    }
+  ]
+}

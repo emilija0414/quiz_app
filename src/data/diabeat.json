@@ -1,0 +1,96 @@
+{
+  "quizId": "diabeat",
+  "title": "DiaBeat Quiz",
+  "intro": {
+    "title": "Easy-to-follow diabetes plan",
+    "image": "<image-url>",
+    "buttons": [
+      {
+        "id": "start_quiz_woman",
+        "label": "Plan for woman",
+        "action": "start"
+      },
+      { "id": "start_quiz_man", "label": "Plan for man", "action": "start" }
+    ]
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single_choice",
+      "text": "Select your A1C levels",
+      "options": [
+        { "value": "above_6_4", "label": "> 6.4" },
+        { "value": "between_5_7_6_4", "label": "5.7–6.4" },
+        { "value": "below_5_6", "label": "< 5.6" },
+        { "value": "unknown", "label": "I don’t know" }
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "single_choice",
+      "text": "Have you been diagnosed with diabetes or prediabetes?",
+      "options": [
+        { "value": "yes", "label": "Yes" },
+        { "value": "no", "label": "No" }
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "single_choice",
+      "text": "What kind of diabetes have you been diagnosed with?",
+      "visibleIf": [{ "questionId": "q2", "equals": "yes" }],
+      "options": [
+        { "value": "type_1", "label": "Type 1" },
+        { "value": "type_2", "label": "Type 2" },
+        { "value": "prediabetes", "label": "Prediabetes" },
+        { "value": "other", "label": "None of the above" }
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "info",
+      "text": "Did you know?",
+      "subtitle": "Small habits can make a big difference.",
+      "image": "<image-url>",
+      "description": "Keep in mind that it only takes 15 minutes of walking each morning to give long-lasting results. Let’s continue with creating your personalized meal plan portfolio!",
+      "buttons": [
+        { "id": "next_q4", "label": "OK, let's do it!", "action": "next" }
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "single_choice",
+      "text": "Do you have any allergies?",
+      "options": [
+        { "value": "yes", "label": "Yes" },
+        { "value": "no", "label": "No" }
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "multi_choice",
+      "text": "What foods are you allergic to?",
+      "visibleIf": [{ "questionId": "q5", "equals": "yes" }],
+      "options": [
+        { "value": "lactose", "label": "Lactose", "image": "<image-url>" },
+        { "value": "eggs", "label": "Eggs", "image": "<image-url>" },
+        { "value": "nuts", "label": "Nuts", "image": "<image-url>" },
+        { "value": "soy", "label": "Soy", "image": "<image-url>" },
+        { "value": "gluten", "label": "Gluten", "image": "<image-url>" },
+        { "value": "fish", "label": "Fish", "image": "<image-url>" },
+        { "value": "shellfish", "label": "Shellfish", "image": "<image-url>" },
+        { "value": "none", "label": "None of the above" }
+      ],
+      "buttons": [
+        { "id": "continue_q6", "label": "Continue", "action": "next" }
+      ]
+    },
+    {
+      "id": "q7",
+      "type": "number",
+      "text": "How young are you?",
+      "placeholder": "Age",
+      "buttons": [{ "id": "next_q7", "label": "Next", "action": "next" }]
+    }
+  ]
+}
