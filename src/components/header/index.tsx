@@ -24,7 +24,12 @@ const Header: FC<HeaderProps & { color?: string }> = ({
         )}
       </div>
 
-      <h1 className="text-xl font-bold text-center flex-1">{title}</h1>
+      <h1
+        className="text-xl text-white font-bold text-center rounded inline-block px-4 py-2"
+        style={{ backgroundColor: color }}
+      >
+        {title}
+      </h1>
 
       <div>
         {nextUrl && (
