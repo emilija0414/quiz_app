@@ -1,26 +1,18 @@
-@tailwind utilities;
+@import "tailwindcss";
 
-/* Custom CSS variables */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-  --font-sans: system-ui, sans-serif;
-  --font-mono: monospace;
+  --foreground: #111827;
 }
-
-/* Dark mode support */
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
-/* Base body styles */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
   margin: 0;
-  padding: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
 }

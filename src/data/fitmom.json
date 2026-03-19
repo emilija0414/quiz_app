@@ -1,9 +1,10 @@
 {
   "quizId": "fitmom",
-  "title": "FitMom Quiz",
+  "title": "FitMom",
   "intro": {
     "title": "Get back in shape.",
-    "image": "<image-url>",
+    "image": "/images/fitmomHeroImage.svg",
+    "primaryColor": "#AA00FF",
     "buttons": [{ "label": "Start the Quiz", "action": "start" }]
   },
   "questions": [

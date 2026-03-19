@@ -1,0 +1,43 @@
+"use client";
+import { useRouter } from "next/navigation";
+import { FC } from "react";
+import Button from "../button";
+import { HeaderProps } from "./types";
+
+const Header: FC<HeaderProps & { color?: string }> = ({
+  title,
+  backUrl,
+  nextUrl,
+  color,
+}) => {
+  const router = useRouter();
+
+  return (
+    <header className="flex items-center justify-between p-4 border-b bg-white shadow-sm">
+      <div>
+        {backUrl && (
+          <Button
+            label="Back"
+            onClick={() => router.push(backUrl)}
+            variant="secondary"
+          />
+        )}
+      </div>
+
+      <h1 className="text-xl font-bold text-center flex-1">{title}</h1>
+
+      <div>
+        {nextUrl && (
+          <Button
+            label="Next"
+            onClick={() => router.push(nextUrl)}
+            variant="primary"
+            color={color}
+          />
+        )}
+      </div>
+    </header>
+  );
+};
+
+export default Header;

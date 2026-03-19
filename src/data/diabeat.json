@@ -1,9 +1,11 @@
 {
   "quizId": "diabeat",
-  "title": "DiaBeat Quiz",
+  "title": "DiaBeat",
   "intro": {
     "title": "Easy-to-follow diabetes plan",
-    "image": "<image-url>",
+    "image": "/images/diabearHeroImage.svg",
+    "primaryColor": "#2C5CEB",
+    "secondaryColor": "#FF7040",
     "buttons": [
       {
         "id": "start_quiz_woman",

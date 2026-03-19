@@ -1,9 +1,10 @@
 {
   "quizId": "heycys",
-  "title": "HeyCys Quiz",
+  "title": "HeyCys",
   "intro": {
     "title": "Walk yourself out of PCOS",
-    "image": "<image-url>",
+    "image": "/images/heycysHeroImage.svg",
+    "primaryColor": "#E41E73",
     "buttons": [
       { "id": "start_quiz", "label": "Start the Quiz", "action": "start" }
     ]

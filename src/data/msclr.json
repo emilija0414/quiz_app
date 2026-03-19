@@ -1,9 +1,11 @@
 {
   "quizId": "msclr",
-  "title": "Msclr Quiz",
+  "title": "Msclr",
   "intro": {
     "title": "28-day plan to build muscle",
-    "image": "<image-url>",
+    "image": "/images/msclrHeroImage.svg",
+    "primaryColor": "#010101",
+    "secondaryColor": "#1F0090",
     "buttons": [
       { "id": "start_quiz", "label": "Start the Quiz", "action": "start" }
     ]

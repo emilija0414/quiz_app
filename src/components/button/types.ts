@@ -1,6 +1,7 @@
-export type ButtonProps = {
+export interface ButtonProps {
   label: string;
   onClick: () => void;
   variant?: "primary" | "secondary";
+  color?: string;
   disabled?: boolean;
-};
+}

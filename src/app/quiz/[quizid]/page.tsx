@@ -1,33 +1,43 @@
 "use client";
+
+"use client";
 import { useRouter } from "next/navigation";
 import { quizzes, QuizId } from "../../../data/quizzes";
+import Hero from "@/components/hero";
 
-export default function QuizIntro({ params }: { params: { quizid: QuizId } }) {
+interface Props {
+  params: {
+    quizid: QuizId;
+  };
+}
+
+export default function QuizIntro({ params }: Props) {
   const router = useRouter();
   const quiz = quizzes[params.quizid];
 
   if (!quiz) return <div>Quiz not found</div>;
 
   const startQuiz = () => {
+    try {
+      localStorage.removeItem(`quiz-${params.quizid}-answers`);
+    } catch {}
     const firstQuestion = quiz.questions[0];
     router.push(`/quiz/${params.quizid}/${firstQuestion.id}`);
   };
+  const heroButtons = quiz.intro.buttons.map((btn) => ({
+    label: btn.label,
+    onClick: startQuiz,
+    color: quiz.intro.primaryColor,
+  }));
 
   return (
-    <main className="p-8 text-center">
-      <h1 className="text-2xl font-bold mb-4">{quiz.intro.title}</h1>
-      {quiz.intro.image && (
-        <img src={quiz.intro.image} alt="" className="mx-auto mb-6" />
-      )}
-      {quiz.intro.buttons.map((btn, i) => (
-        <button
-          key={i}
-          onClick={startQuiz}
-          className="px-6 py-3 bg-black text-white rounded"
-        >
-          {btn.label}
-        </button>
-      ))}
-    </main>
+    <div className="flex justify-center items-center max-w-5xl mx-auto">
+      <Hero
+        title={quiz.intro.title}
+        image={quiz.intro.image}
+        buttons={heroButtons}
+        color={quiz.intro.primaryColor}
+      />
+    </div>
   );
 }
