@@ -7,6 +7,10 @@ export type Question = {
   type: QuestionType;
   text: string;
   subtitle?: string;
+  description?: string;
+  note?: string;
+  image?: string;
   options?: OptionCardProps[];
+  placeholder?: string;
   buttons?: { id: string; label: string; action: string }[];
 };

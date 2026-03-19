@@ -7,6 +7,7 @@ import { Question } from "@/components/questionRenderer/types";
 import Header from "@/components/header";
 import { getPrevQuestion } from "@/helpers/getPrevQuestion";
 import { getNextQuestion } from "@/helpers/getNextQuestion";
+import { isQuestionVisible } from "@/helpers/isQuestionVisible";
 
 interface QuestionPageProps {
   params: {
@@ -40,12 +41,7 @@ export default function QuestionPage({ params }: QuestionPageProps) {
   const prevQuestion = getPrevQuestion(quiz.questions, questionIndex, answers);
   const nextQuestion = getNextQuestion(quiz.questions, question.id, answers);
 
-  const isVisible = !question.visibleIf
-    ? true
-    : question.visibleIf.every(
-        (cond) => answers[cond.questionId] === cond.equals,
-      );
-
+  const isVisible = isQuestionVisible(question, answers);
   const shouldSkip = question.visibleIf && answersLoaded && !isVisible;
 
   useEffect(() => {
@@ -54,32 +50,61 @@ export default function QuestionPage({ params }: QuestionPageProps) {
     if (next) {
       router.replace(`/quiz/${quizKey}/${next.id}`);
     } else {
-      router.replace("/results");
+      router.replace(`/quiz/${quizKey}/loading`);
     }
   }, [shouldSkip, quizKey, question?.id, answers, router, quiz?.questions]);
+
+  useEffect(() => {
+    if (shouldSkip) return;
+    if (!window.dataLayer) window.dataLayer = [];
+    window.dataLayer.push({
+      event: "quiz_view",
+      quizId: quizKey,
+      questionId: question.id,
+    });
+  }, [quizKey, question?.id, shouldSkip]);
 
   const handleAnswer = (value: any) => {
     const updated = { ...answers, [question.id]: value };
     setAnswers(updated);
     localStorage.setItem(`quiz-${quizKey}-answers`, JSON.stringify(updated));
 
+    if (!window.dataLayer) window.dataLayer = [];
+    window.dataLayer.push({
+      event: "quiz_answer",
+      quizId: quizKey,
+      questionId: question.id,
+      answer: value,
+    });
+
     const next = getNextQuestion(quiz.questions, question.id, updated);
-    if (next) router.push(`/quiz/${quizKey}/${next.id}`);
-    else router.push("/results");
+    if (next) {
+      router.push(`/quiz/${quizKey}/${next.id}`);
+    } else {
+      router.push(`/quiz/${quizKey}/loading`);
+      window.dataLayer.push({
+        event: "quiz_submit",
+        quizId: quizKey,
+        answers: updated,
+      });
+    }
   };
 
   return (
-    <main className="p-8">
+    <main className="flex flex-col justify-center items-center mx-auto">
       <Header
         title={quiz.title}
         backUrl={
-          prevQuestion ? `/quiz/${quizKey}/${prevQuestion.id}` : undefined
+          prevQuestion
+            ? `/quiz/${quizKey}/${prevQuestion.id}`
+            : `/quiz/${quizKey}`
         }
         nextUrl={
           nextQuestion ? `/quiz/${quizKey}/${nextQuestion.id}` : undefined
         }
         color={quiz.intro?.primaryColor}
       />
+
       {shouldSkip ? (
         <div className="py-8 text-center text-gray-600">Skipping question…</div>
       ) : (

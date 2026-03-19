@@ -28,14 +28,30 @@
       "text": "Select body areas you would like to improve:",
       "visibleIf": [{ "questionId": "q1", "equals": "improve_body_areas" }],
       "options": [
-        { "value": "breast", "label": "Breast form", "image": "<image-url>" },
-        { "value": "arms", "label": "Arms", "image": "<image-url>" },
-        { "value": "belly", "label": "Belly", "image": "<image-url>" },
-        { "value": "buttocks", "label": "Buttocks", "image": "<image-url>" },
+        {
+          "value": "breast",
+          "label": "Breast form",
+          "image": "/icons/bodyPartIcons/breastFormIcon.svg"
+        },
+        {
+          "value": "arms",
+          "label": "Arms",
+          "image": "/icons/bodyPartIcons/armIcon.svg"
+        },
+        {
+          "value": "belly",
+          "label": "Belly",
+          "image": "/icons/bodyPartIcons/bellyIcon.svg"
+        },
+        {
+          "value": "buttocks",
+          "label": "Buttocks",
+          "image": "/icons/bodyPartIcons/buttocksIcon.svg"
+        },
         {
           "value": "legs_thighs",
           "label": "Legs and thighs",
-          "image": "<image-url>"
+          "image": "/icons/bodyPartIcons/legIcon.svg"
         }
       ]
     },
@@ -47,15 +63,27 @@
         {
           "value": "flexibility",
           "label": "Flexibility",
-          "image": "<image-url>"
+          "image": "/icons/workoutIcons/flexibilityIcon.svg"
         },
-        { "value": "aerobic", "label": "Aerobic", "image": "<image-url>" },
-        { "value": "strength", "label": "Strength", "image": "<image-url>" },
-        { "value": "others", "label": "Others", "image": "<image-url>" },
+        {
+          "value": "aerobic",
+          "label": "Aerobic",
+          "image": "/icons/workoutIcons/aerobicIcon.svg"
+        },
+        {
+          "value": "strength",
+          "label": "Strength",
+          "image": "/icons/workoutIcons/strengthIcon.svg"
+        },
+        {
+          "value": "others",
+          "label": "Others",
+          "image": "/icons/workoutIcons/othersIcon.svg"
+        },
         {
           "value": "no_workouts",
           "label": "I don't like workouts",
-          "image": "<image-url>"
+          "image": "/icons/workoutIcons/noWorkoutsIcon.svg"
         }
       ]
     },
@@ -63,8 +91,9 @@
       "id": "q4",
       "type": "info",
       "text": "Did you know?",
-      "image": "<image-url>",
-      "description": "Low impact exercises are completely safe during breastfeeding and do not affect the milk supply or taste. Keep in mind that it only takes 15 minutes of focused daily physical activity to give long-lasting results.",
+      "image": "/images/info/breastFeeding.svg",
+      "description": "Low impact exercises are completely safe during breastfeeding and do not affect the milk supply or taste.",
+      "note": "Keep in mind that it only takes 15 minutes of focused daily physical activity to give long-lasting results.",
       "buttons": [{ "label": "OK, let's do it!", "action": "next" }]
     },
     {
@@ -81,13 +110,41 @@
       "type": "multi_choice",
       "text": "What foods is your breastfed baby sensitive to?",
       "options": [
-        { "value": "lactose", "label": "Lactose", "image": "<image-url>" },
-        { "value": "eggs", "label": "Eggs", "image": "<image-url>" },
-        { "value": "nuts", "label": "Nuts", "image": "<image-url>" },
-        { "value": "soy", "label": "Soy", "image": "<image-url>" },
-        { "value": "gluten", "label": "Gluten", "image": "<image-url>" },
-        { "value": "fish", "label": "Fish", "image": "<image-url>" },
-        { "value": "shellfish", "label": "Shellfish", "image": "<image-url>" },
+        {
+          "value": "lactose",
+          "label": "Lactose",
+          "image": "/icons/foodIcons/lactoseIcon.svg"
+        },
+        {
+          "value": "eggs",
+          "label": "Eggs",
+          "image": "/icons/foodIcons/eggsIcon.svg"
+        },
+        {
+          "value": "nuts",
+          "label": "Nuts",
+          "image": "/icons/foodIcons/nutsIcon.svg"
+        },
+        {
+          "value": "soy",
+          "label": "Soy",
+          "image": "/icons/foodIcons/soyIcon.svg"
+        },
+        {
+          "value": "gluten",
+          "label": "Gluten",
+          "image": "/icons/foodIcons/glutenIcon.svg"
+        },
+        {
+          "value": "fish",
+          "label": "Fish",
+          "image": "/icons/foodIcons/fishIcon.svg"
+        },
+        {
+          "value": "shellfish",
+          "label": "Shellfish",
+          "image": "/icons/foodIcons/shellfishIcon.svg"
+        },
         { "value": "none", "label": "None of the above" }
       ]
     },

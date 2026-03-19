@@ -4,6 +4,7 @@
 import { useRouter } from "next/navigation";
 import { quizzes, QuizId } from "../../../data/quizzes";
 import Hero from "@/components/hero";
+import Header from "@/components/header";
 
 interface Props {
   params: {
@@ -31,7 +32,8 @@ export default function QuizIntro({ params }: Props) {
   }));
 
   return (
-    <div className="flex justify-center items-center max-w-5xl mx-auto">
+    <div className="flex flex-col justify-center items-center mx-auto">
+      <Header title={quiz.title} color={quiz.intro?.primaryColor} />
       <Hero
         title={quiz.intro.title}
         image={quiz.intro.image}

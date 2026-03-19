@@ -53,7 +53,7 @@
       "type": "info",
       "text": "Did you know?",
       "subtitle": "Small habits can make a big difference.",
-      "image": "<image-url>",
+      "image": "/images/info/foodPlate.svg",
       "description": "Keep in mind that it only takes 15 minutes of walking each morning to give long-lasting results. Let’s continue with creating your personalized meal plan portfolio!",
       "buttons": [
         { "id": "next_q4", "label": "OK, let's do it!", "action": "next" }
@@ -74,13 +74,41 @@
       "text": "What foods are you allergic to?",
       "visibleIf": [{ "questionId": "q5", "equals": "yes" }],
       "options": [
-        { "value": "lactose", "label": "Lactose", "image": "<image-url>" },
-        { "value": "eggs", "label": "Eggs", "image": "<image-url>" },
-        { "value": "nuts", "label": "Nuts", "image": "<image-url>" },
-        { "value": "soy", "label": "Soy", "image": "<image-url>" },
-        { "value": "gluten", "label": "Gluten", "image": "<image-url>" },
-        { "value": "fish", "label": "Fish", "image": "<image-url>" },
-        { "value": "shellfish", "label": "Shellfish", "image": "<image-url>" },
+        {
+          "value": "lactose",
+          "label": "Lactose",
+          "image": "/icons/foodIcons/lactoseIcon.svg"
+        },
+        {
+          "value": "eggs",
+          "label": "Eggs",
+          "image": "/icons/foodIcons/eggsIcon.svg"
+        },
+        {
+          "value": "nuts",
+          "label": "Nuts",
+          "image": "/icons/foodIcons/nutsIcon.svg"
+        },
+        {
+          "value": "soy",
+          "label": "Soy",
+          "image": "/icons/foodIcons/soyIcon.svg"
+        },
+        {
+          "value": "gluten",
+          "label": "Gluten",
+          "image": "/icons/foodIcons/glutenIcon.svg"
+        },
+        {
+          "value": "fish",
+          "label": "Fish",
+          "image": "/icons/foodIcons/fishIcon.svg"
+        },
+        {
+          "value": "shellfish",
+          "label": "Shellfish",
+          "image": "/icons/foodIcons/shellfishIcon.svg"
+        },
         { "value": "none", "label": "None of the above" }
       ],
       "buttons": [

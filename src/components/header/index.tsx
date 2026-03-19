@@ -13,7 +13,7 @@ const Header: FC<HeaderProps & { color?: string }> = ({
   const router = useRouter();
 
   return (
-    <header className="flex items-center justify-between p-4 border-b bg-white shadow-sm">
+    <header className="flex w-full items-center justify-between p-4 border-b bg-white shadow-sm">
       <div>
         {backUrl && (
           <Button
@@ -24,12 +24,12 @@ const Header: FC<HeaderProps & { color?: string }> = ({
         )}
       </div>
 
-      <h1
+      <span
         className="text-xl text-white font-bold text-center rounded inline-block px-4 py-2"
         style={{ backgroundColor: color }}
       >
         {title}
-      </h1>
+      </span>
 
       <div>
         {nextUrl && (
