@@ -21,7 +21,7 @@ export default function Button({
       onClick={onClick}
       disabled={disabled}
       style={color ? { backgroundColor: color } : undefined}
-      className={`${baseClass} ${bgClass} ${textClass}`}
+      className={`${baseClass} ${bgClass} ${textClass}, ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
     >
       {label}
     </button>

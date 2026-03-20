@@ -8,8 +8,8 @@ export default function LoadingPage() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.replace("/quiz/fake-results"); // fake results page
-    }, 2000); // display for 2 seconds
+      router.replace("/quiz/fake-results");
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [router]);

@@ -9,11 +9,12 @@ const Header: FC<HeaderProps & { color?: string }> = ({
   backUrl,
   nextUrl,
   color,
+  nextDisabled,
 }) => {
   const router = useRouter();
 
   return (
-    <header className="flex w-full items-center justify-between p-4 border-b bg-white shadow-sm">
+    <header className="flex w-full items-center justify-between p-4 bg-white shadow-lg border border-transparent">
       <div>
         {backUrl && (
           <Button
@@ -38,6 +39,7 @@ const Header: FC<HeaderProps & { color?: string }> = ({
             onClick={() => router.push(nextUrl)}
             variant="primary"
             color={color}
+            disabled={nextDisabled}
           />
         )}
       </div>

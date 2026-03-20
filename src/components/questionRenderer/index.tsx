@@ -90,7 +90,6 @@ export default function QuestionRenderer({
             <Button
               label="Next"
               onClick={() => {
-                // Convert to number or null if empty
                 const num = inputValue === "" ? null : Number(inputValue);
                 onAnswer(num);
               }}

@@ -3,4 +3,5 @@ export interface HeaderProps {
   backUrl?: string;
   nextUrl?: string;
   color?: string;
+  nextDisabled?: boolean;
 }

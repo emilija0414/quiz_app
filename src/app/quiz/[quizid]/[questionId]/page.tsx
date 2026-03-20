@@ -90,6 +90,13 @@ export default function QuestionPage({ params }: QuestionPageProps) {
     }
   };
 
+  const currentAnswer = answers[question.id];
+
+  const isAnswered =
+    currentAnswer != null &&
+    !(typeof currentAnswer === "string" && currentAnswer.trim() === "") &&
+    !(Array.isArray(currentAnswer) && currentAnswer.length === 0);
+
   return (
     <main className="flex flex-col justify-center items-center mx-auto">
       <Header
@@ -103,6 +110,7 @@ export default function QuestionPage({ params }: QuestionPageProps) {
           nextQuestion ? `/quiz/${quizKey}/${nextQuestion.id}` : undefined
         }
         color={quiz.intro?.primaryColor}
+        nextDisabled={!isAnswered}
       />
 
       {shouldSkip ? (

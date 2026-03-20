@@ -25,21 +25,31 @@ export default function QuizIntro({ params }: Props) {
     const firstQuestion = quiz.questions[0];
     router.push(`/quiz/${params.quizid}/${firstQuestion.id}`);
   };
-  const heroButtons = quiz.intro.buttons.map((btn) => ({
-    label: btn.label,
-    onClick: startQuiz,
-    color: quiz.intro.primaryColor,
-  }));
+  const heroButtons = quiz.intro.buttons.map((btn, index, arr) => {
+    const isSingle = arr.length === 1;
+    const isLast = index === arr.length - 1;
+
+    const color =
+      isSingle || isLast
+        ? quiz.intro.primaryColor
+        : "secondaryColor" in quiz.intro
+          ? quiz.intro.secondaryColor
+          : "#999";
+    return {
+      label: btn.label,
+      onClick: startQuiz,
+      color,
+    };
+  });
 
   return (
-    <div className="flex flex-col justify-center items-center mx-auto">
+    <main className="flex flex-col justify-center items-center mx-auto">
       <Header title={quiz.title} color={quiz.intro?.primaryColor} />
       <Hero
         title={quiz.intro.title}
         image={quiz.intro.image}
         buttons={heroButtons}
-        color={quiz.intro.primaryColor}
       />
-    </div>
+    </main>
   );
 }
