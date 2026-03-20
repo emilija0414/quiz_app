@@ -1,24 +1,17 @@
 "use client";
-import { Question, QuestionType } from "./types";
+import { Question, QuestionRendererProps, QuestionType } from "./types";
 
 import Button from "../button";
 import OptionCard from "../optionCard";
 import InputField from "../inputField";
 import { useEffect, useState } from "react";
 
-type Props = {
-  question: Question;
-  value?: number | string | string[];
-  onAnswer: (value: any) => void;
-  buttonColor?: string;
-};
-
 export default function QuestionRenderer({
   question,
   value,
   onAnswer,
   buttonColor,
-}: Props) {
+}: QuestionRendererProps) {
   const [multiSelected, setMultiSelected] = useState<string[]>(
     Array.isArray(value) ? value : [],
   );
@@ -27,7 +20,15 @@ export default function QuestionRenderer({
     setMultiSelected(Array.isArray(value) ? value : []);
   }, [value]);
 
-  const [inputValue, setInputValue] = useState<number>();
+  const [inputValue, setInputValue] = useState<string>(
+    value != null ? String(value) : "",
+  );
+
+  useEffect(() => {
+    if (question.type === "number") {
+      setInputValue(value != null ? String(value) : "");
+    }
+  }, [value, question.type]);
 
   return (
     <div className="flex flex-col items-center gap-8 p-10">
@@ -82,15 +83,15 @@ export default function QuestionRenderer({
         {question.type === "number" && (
           <>
             <InputField
-              value={inputValue}
-              onChange={(val) => setInputValue(val)}
-              placeholder={question.placeholder}
+              value={inputValue === "" ? undefined : Number(inputValue)}
+              onValueChange={(val: string) => setInputValue(val)}
+              placeholder={question.placeholder ?? ""}
             />
-
             <Button
               label="Next"
               onClick={() => {
-                const num = inputValue === "" ? null : Number(inputValue);
+                const num: number | null =
+                  inputValue.trim() === "" ? null : Number(inputValue);
                 onAnswer(num);
               }}
               color={buttonColor}

@@ -14,3 +14,10 @@ export type Question = {
   placeholder?: string;
   buttons?: { id: string; label: string; action: string }[];
 };
+
+export type QuestionRendererProps = {
+  question: Question;
+  value?: number | string | string[];
+  onAnswer: (value: any) => void;
+  buttonColor?: string;
+};

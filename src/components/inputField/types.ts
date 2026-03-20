@@ -1,4 +1,5 @@
 export type InputFieldProps = {
-  value: number;
+  value?: number;
   placeholder?: string;
+  onValueChange?: (val: string) => void;
 };

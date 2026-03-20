@@ -1,21 +1,21 @@
 import { useState, useEffect } from "react";
 
-export function useQuizAnswers(quizId: string) {
-  const storageKey = `quiz-${quizId}-answers`;
-  const [answers, setAnswers] = useState<Record<string, string | string[]>>({});
+export function useQuizAnswers(quizKey: string) {
+  const [answers, setAnswers] = useState<Record<string, any>>({});
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem(storageKey);
+    const stored = localStorage.getItem(`quiz-${quizKey}-answers`);
     if (stored) setAnswers(JSON.parse(stored));
-  }, [storageKey]);
+    setLoaded(true);
+  }, [quizKey]);
 
-  useEffect(() => {
-    localStorage.setItem(storageKey, JSON.stringify(answers));
-  }, [answers, storageKey]);
-
-  const updateAnswer = (questionId: string, value: string | string[]) => {
-    setAnswers((prev) => ({ ...prev, [questionId]: value }));
+  const saveAnswer = (questionId: string, value: any) => {
+    const updated = { ...answers, [questionId]: value };
+    setAnswers(updated);
+    localStorage.setItem(`quiz-${quizKey}-answers`, JSON.stringify(updated));
+    return updated;
   };
 
-  return { answers, updateAnswer };
+  return { answers, loaded, saveAnswer };
 }

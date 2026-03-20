@@ -16,7 +16,12 @@ export default function QuizIntro({ params }: Props) {
   const router = useRouter();
   const quiz = quizzes[params.quizid];
 
-  if (!quiz) return <div>Quiz not found</div>;
+  if (!quiz)
+    return (
+      <h1 className="flex justify-center items-center p-10 text-3xl font-bold mb-6">
+        Under construction. Quiz answers to be added soon.
+      </h1>
+    );
 
   const startQuiz = () => {
     try {
