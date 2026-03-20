@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## About the application
+
+Multi-Brand Quiz App
+A simple, multi-brand quiz platform built with Next.js (App Router), TypeScript, and TailwindCSS.
+The app supports multiple branded quizzes, dynamic routing per question, and persistent answers across navigation.
+
+## Implemented features
+
+- Multi-brand support: Quizzes for diabeat, msclr, fitmom, and heycys.
+- Routing & Navigation:
+  -- Each quiz has its own URL /quiz/[quizId].
+  -- Each quiz question has its own URL /quiz/[quizId]/[questionId].
+  -- Back/Forward browser buttons work correctly between questions.
+- Loading screen (/loading) after quiz submission.
+- Homepage (/) lists all quizzes with buttons leading to the quiz intro page made purely for the purpose of easier testing at this time.
+- Quiz data loaded from local JSON files (mock API).
+- Flexible schema allows easy addition of new quizzes or question types.
+- Conditional questions support based on previous answers (visibleIf).
+- User answers stored in React state and localStorage.
+- Navigating back and forth preserves previously selected answers.
+- Analytics events using window.dataLayer.push() for quiz views, answers, and submissions.
+
+## Tech stack
+
+Next.js (App Router) – for server & client routing
+TypeScript – type-safe development
+TailwindCSS – quick and responsive styling
 
 ## Getting Started
 
-First, run the development server:
+## Install dependencies
 
-```bash
+npm install
+
+# or
+
+yarn install
+
+## Run the development server
+
 npm run dev
+
 # or
+
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Run tests
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+npx jest
 
-## Learn More
+## Key Technical Decisions
 
-To learn more about Next.js, take a look at the following resources:
+Client-side navigation: Used useRouter from next/navigation in client components for App Router routing.
+Homepage as a client component: Dynamically lists all quizzes and routes to the quiz intro page.
+State persistence: Answers stored in React state + localStorage for durability across navigation.
+Flexible schema: Quiz JSON designed to allow easy addition of new questions, types, or brands.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## What Could Be Added Next
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Progress Bar / Step Indicator to show quiz progress (e.g., Question 3 of 10)
+- Quiz Results Page. After submission, show results, scoring, or feedback per question.
+- Reset Quiz. A “Restart Quiz” button that clears localStorage and state.
+- Responsive Design Tweaks. Ensure layouts work perfectly on mobile, tablet, and desktop.
+- Accessibility Improvements. Keyboard navigation, ARIA labels, high contrast support for better inclusivity.
+- Integrate more tests: eg. Test navigation between questions and state persistence.
+- Mock API / Remote Data. Replace local JSON with a small mock API endpoint to simulate real fetching.
+- TypeScript Enhancements. Stronger typing for quiz JSON, questions, and answers for safer scaling.
